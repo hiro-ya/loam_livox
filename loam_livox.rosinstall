@@ -1,0 +1,1 @@
+ - git: {local-name: ceres-solver, uri: 'https://ceres-solver.googlesource.com/ceres-solver.git', version: '1.14.0rc2'}

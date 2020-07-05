@@ -51,4 +51,27 @@ target_link_libraries(livox_laserMapping ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${
 add_executable(read_camera source/read_camera.cpp)
 target_link_libraries(read_camera ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${CERES_LIBRARIES} ${OpenCV_LIBS})
 
+install(
+  TARGETS
+  livox_scanRegistration
+  livox_laserMapping
+  read_camera
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
+install(DIRECTORY launch/
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+        PATTERN ".svn" EXCLUDE
+        )
+
+install(DIRECTORY config/
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
+        PATTERN ".svn" EXCLUDE
+        )
+
+install(DIRECTORY rviz_cfg/
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/rviz_cfg
+        PATTERN ".svn" EXCLUDE
+        )
